@@ -67,7 +67,7 @@ public class PoetryDatabase
 
     public void addPoem(Poem p, boolean priority) throws IOException
     {
-        if (null == p.text)
+        if (null==p || null == p.text)
             return;
 
         if (poemExists(p.id))
@@ -89,6 +89,8 @@ public class PoetryDatabase
             if (null != p.link)
                 pw.println("link:" + p.link);
             pw.println(p.text);
+
+            //System.out.println("added poem: " + f.getPath());
         }
         finally
         {

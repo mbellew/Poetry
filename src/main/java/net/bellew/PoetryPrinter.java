@@ -1,6 +1,7 @@
 package net.bellew;
 
-import providers.PoetryFoundationHtml;
+import net.bellew.providers.PoetryFoundationHtml;
+import net.bellew.providers.PoetsOrg;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,6 +42,15 @@ public class PoetryPrinter
             try
             {
                 new PoetryFoundationHtml().find(db);
+            }
+            catch (IOException x)
+            {
+                System.err.println(x.getMessage());
+            }
+
+            try
+            {
+                new PoetsOrg().find(db);
             }
             catch (IOException x)
             {

@@ -1,4 +1,4 @@
-package providers;
+package net.bellew.providers;
 
 import net.bellew.Poem;
 import net.bellew.PoetryDatabase;
@@ -8,7 +8,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,10 +37,7 @@ public class PoetryFoundationHtml
         Elements poemLinks = doc.select("DIV.c-feature H2 A");
         List<String> list = poemLinks.stream()
                 .map(a -> a.attr("href"))
-                .filter(s ->
-                {
-                    return !db.poemExists(idFromUrl(s));
-                })
+                .filter(s -> !db.poemExists(idFromUrl(s)))
                 .collect(Collectors.toList());
         for (var s : list)
             System.out.println(s);
