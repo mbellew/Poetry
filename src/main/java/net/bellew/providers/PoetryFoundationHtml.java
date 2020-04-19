@@ -39,7 +39,7 @@ public class PoetryFoundationHtml
                 .map(a -> a.attr("href"))
                 .filter(s -> !db.poemExists(idFromUrl(s)))
                 .collect(Collectors.toList());
-        for (var s : list)
+        for (String s : list)
             System.out.println(s);
         return list;
     }

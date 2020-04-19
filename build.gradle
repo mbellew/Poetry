@@ -5,6 +5,11 @@ group 'net.bellew'
 version ''
 mainClassName = 'net.bellew.PoetryPrinter'
 
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
 repositories {
     mavenCentral()
 }
